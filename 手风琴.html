@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>手风琴demo</title>
+  <style>
+    ul{
+      display: flex;
+      width: 800px;
+      height: 400px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border: 1px solid #e5e5e5;
+    }
+    .item{
+      width: 60px;
+      line-height: 400px;
+      color: #fff;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      text-align: center;
+      overflow: hidden;
+      transition:  all ease .3s;
+    }
+    .item:nth-child(4n+1){
+      background: url('http://pic.netbian.com/uploads/allimg/180826/113958-153525479855be.jpg') center center /660px 400px no-repeat;
+    }
+    .item:nth-child(4n+2){
+      background: url('http://pic.netbian.com/uploads/allimg/170725/103840-150095032034c0.jpg') center center /660px 400px no-repeat;
+    }
+    .item:nth-child(4n+3){
+      background: url('http://pic.netbian.com/uploads/allimg/170610/174855-1497088135bff2.jpg') center center /660px 400px no-repeat;
+    }
+    .item:nth-child(4n+4){
+      background: url('http://pic.netbian.com/uploads/allimg/200615/223225-15922315459470.jpg') center center /660px 400px no-repeat;
+    }
+  </style>
+</head>
+<body>
+  <ul onclick="handleClick(event)" class="list">
+    <li class="item"  data-id="1">小楼昨夜又东风，故国不堪回首月明中。 </li>
+    <li class="item"  data-id="2">明月别枝惊鹊，清风半夜鸣蝉。 </li>
+    <li class="item"  data-id="3">醒也无聊，醉也无聊，梦也何曾到谢桥。 </li>
+    <li class="item"  data-id="4">此去经年，应是良辰好景虚设。便纵有千种风情，更与何人说？ </li>
+  </ul>
+</body>
+<script>
+  function handleClick(e){
+    let index = e.target.getAttribute('data-id')-1
+    let $itemList = document.querySelectorAll('.item')
+    Array.from($itemList).forEach((ele,i)=>{
+      if(i!==index){
+        ele.style.width = '60px'
+      }else{
+        e.target.style.width = '100%'
+      }
+    })
+  } 
+</script>
+</html>
